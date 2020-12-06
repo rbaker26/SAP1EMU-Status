@@ -9,7 +9,7 @@ $(document).ready(async function() {
 
     await sleep(700);
     Sap1EmuStatus();
-    StatusStatus();
+    //StatusStatus();
     GitHubStatus();
 
     setTimeout(UpdateStatusSummary, 2200);
@@ -20,15 +20,11 @@ function Sap1EmuStatus() {
         // url: "https://sap1emu.net/status",
         url : "https://sap1emu.net",
         success: function (data) {
-            // var response = data;
-            
-            // if(response.status == "Operational") {
-            //     $("#statusPage").text(response.status);
-            // }
+            $("#sap1emuPage").text("All Systems Operational");
         },
         error: function (request, status, error) {
-            // IsBad = true;
-            // $("#statusPage").text("Site Unreachable");
+            IsBad = true;
+            $("#sap1emuPage").text("Site Unreachable");
 
             console.log(request);
             console.log(status);
