@@ -21,11 +21,13 @@ function Sap1EmuStatus() {
         url : "https://sap1emu.net",
         success: function (data) {
             $("#sap1emuPage").text("All Systems Operational");
+            $("#sap1emu-img").attr("src", "img/Check_green_circle.svg")
         },
         error: function (request, status, error) {
             IsBad = true;
             $("#sap1emuPage").text("Site Unreachable");
-
+            $("#sap1emu-img").attr("src", "img/Cross_red_circle.svg")
+            
             console.log(request);
             console.log(status);
             console.log(error);
@@ -76,11 +78,12 @@ function GitHubStatus() {
                 IsBad == true;
             }
             $("#github").text(response.status.description);
+            $("#github-img").attr("src", "img/Check_green_circle.svg")
         },
         error: function (request, status, error) {
             IsBad == true;
             $("#github").text("Site Unreachable");
-
+            $("#github-img").attr("src", "img/Cross_red_circle.svg")
             console.log(request);
             console.log(status);
             console.log(error);
