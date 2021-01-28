@@ -72,13 +72,19 @@ function GitHubStatus() {
             var response = data;
             var indicator = response.status.indicator;
             if(indicator == "minor") {
+                IsMedium == true;
+                $("#github-img").attr("src", "img/EMark_orange_circle.svg")
                 IsMedium = true;  
+                
             }
             else if(indicator == "major" || indicator == "critical") {
                 IsBad == true;
+                $("#github-img").attr("src", "img/Cross_red_circle.svg")
+            }
+            else {
+                $("#github-img").attr("src", "img/Check_green_circle.svg")
             }
             $("#github").text(response.status.description);
-            $("#github-img").attr("src", "img/Check_green_circle.svg")
         },
         error: function (request, status, error) {
             IsBad == true;
@@ -98,6 +104,7 @@ function GitHubStatus() {
 
 
 function UpdateStatusSummary() {
+    $("#status-pending").hide();
     if(IsBad) {
         $("#status-bad").show();
     }

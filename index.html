@@ -7,10 +7,45 @@
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <script src="js/bootstrap.min.js"></script>
   <title>SAP1EMU - Status</title>
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TH28FT05H0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-TH28FT05H0');
+  </script>
+  <!-- Google Analytics - END-->
+
 </head>
 
-<body class="text-center">
-  <div class="jumbotron">
+<!-- <body class="text-center"> -->
+<body class="">
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+      <div class="container">
+        <a class="navbar-brand" href="https://sap1emu.net">SAP1Emu Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="https://sap1emu.net">Home</a>
+            </li>
+            <li>
+              <a class="nav-link text-dark" href="https://github.com/rbaker26/SAP1EMU" target="_blank">GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="jumbotron alert-primary">
     <div class="container">
       <h1 class="text-center display-2">SAP1Emu Status</h1>
     </div>
@@ -20,85 +55,75 @@
     <div class="row clearfix">
       <div class="col-md-12 column">
 
-        <div class="alert-success" id="status-good">
+
+        <!-- <div class="alert-success" id="status-good">
           <div class="panel-heading">
             <div class="panel-title">
               <h4>Systems are operating normally.</h4>
             </div>
           </div>
-        </div>
-        <br>
-        <div class="alert-warning" id="status-medium">
-          <div class="panel-heading">
-            <div class="panel-title">
-              <h4>Systems are operating, but with reduced capacity.</h4>
-            </div>
+
+        </div> -->
+        <div class="card text-white border-info rounded shadow" id="status-pending">
+          <h5 class="card-header bg-info">Testing Service Status ...</h5>
+          <div class="card-body alert-info">
+            <h5 class="card-title">Give us a second to take a look at the network</h5>
+            <p class="card-text">If you are experiencing issues with the service, please checkout our Help Section on our main site</p>
+            <a href="https://sap1emu.net/Help" class="btn btn-primary">Help Center</a>
           </div>
         </div>
-        <br>
-        <div class="alert-danger" id="status-bad">
-          <div class="panel-heading">
-            <div class="panel-title">
-              <h4>Systems are in <b>critical</b> condition and is no longer functioning normally.</h4>
-            </div>
+        <div class="card text-white border-success rounded shadow" id="status-good">
+          <h5 class="card-header bg-success">All Systems Operational</h5>
+          <div class="card-body alert-success">
+            <h5 class="card-title">Services Up</h5>
+            <p class="card-text">If you are experiencing issues with the service, please checkout our Help Section on our main site</p>
+            <a href="https://sap1emu.net/Help" class="btn btn-primary">Help Center</a>
           </div>
         </div>
-        <br>
+        <div class="card text-white border-warning rounded shadow" id="status-medium">
+          <h5 class="card-header bg-warning">Systems Critical</h5>
+          <div class="card-body alert-warning">
+            <h5 class="card-title">Diminished Services</h5>
+            <p class="card-text">Some or all systems are operating in a diminished state. If the issue continues, please open a ticket on Github.</p>
+            <a href="https://github.com/rbaker26/SAP1EMU/issues/new/choose" class="btn btn-primary">Report Outage</a>
+          </div>
+        </div>
+        <div class="card text-white border-danger rounded shadow" id="status-bad">
+          <h5 class="card-header bg-danger">Major Outage</h5>
+          <div class="card-body alert-danger">
+            <h5 class="card-title">Systems Down</h5>
+            <p class="card-text">Some or all systems are currently down. If the issue continues, please open a ticket on Github.</p>
+            <a href="https://github.com/rbaker26/SAP1EMU/issues/new/choose" class="btn btn-primary">Report Outage</a>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
 
-        <div class="row clearfix">
-          <div class="col-md-12 column">
-            <div class="list-group">
 
 
-              <div class="list-group-item">
-                
-                <h4 class="list-group-item-heading op" >
+        <div class="card shadow">
+          <h5 class="card-header">Service Status Details</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col border rounded pt-3 pb-2 m-2">
+                <h5 class="list-group-item-heading op">
                   sap1emu.net - <span class="pull-right" id="sap1emuPage"></span>
-                  <div class="spinner-border text-secondary" role="status" id="sap1emuPage-spinner">
+                  <div class="spinner-border text-secondary p-1" role="status" id="sap1emuPage-spinner" style="height: 27px; width: 27px;">
                     <span class="sr-only">Loading...</span>
                   </div>
                   <img class="pb-1" id="sap1emu-img" src="" width="25px">
-                </h4>
+                </h5>
               </div>
-
-              <!-- <div class="list-group-item">
-                <h4 class="list-group-item-heading op">
-                  status.sap1emu.net - <span class="pull-right" id="statusPage"></span>
-                  <div class="spinner-border text-secondary" role="status" id="statusPage-spinner">
-                    <span class="sr-only">Loading...</span>
-                  </div>
-                </h4>
-              </div> -->
-              
-
-              <!-- <div class="list-group-item">
-                <h4 class="list-group-item-heading op">
-                  Azure US-West-2 <span class="pull-right">... timed out (1200ms)</span>
-                </h4>
-              </div> -->
-
-              <!-- <div class="list-group-item">
-                <h4 class="list-group-item-heading op">
-                  Azure Application Gateway <span class="pull-right">... timed out (1200ms)</span>
-                </h4>
-              </div> -->
-
-              <!-- <div class="list-group-item">
-                <h4 class="list-group-item-heading op">
-                  Azure App Service <span class="pull-right">... timed out (1200ms)</span>
-                </h4>
-              </div> -->
-
-              <div class="list-group-item">
-                <h4 class="list-group-item-heading op">
+              <div class="col border rounded pt-3 pb-2  m-2">
+                <h5 class="list-group-item-heading op">
                   GitHub DevOps Pipeline - <span class="pull-right" id="github"></span>
-                  <div class="spinner-border text-secondary" role="status" id="github-spinner">
+                  <div class="spinner-border text-secondary p-1" role="status" id="github-spinner" style="height: 27px; width: 27px;">
                     <span class="sr-only">Loading...</span>
                   </div>
                   <img class="pb-1" id="github-img" src="" width="25px">
-                </h4>
+                </h5>
               </div>
-
             </div>
           </div>
         </div>
@@ -106,6 +131,25 @@
     </div>
 
   </div>
+
+  
+  <footer class="border-top footer text-muted fixed-bottom">
+    <div class="container">
+        <div class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white">
+            &copy; 2020&nbsp;-&nbsp;<a href="https://sap1emu.net/Home/Privacy">Privacy</a>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                  <a class="nav-link text-dark" href="https://sap1emu.net/Help">Help</a>
+                </li>
+                <li>
+                  <a class="nav-link text-dark" href="https://github.com/rbaker26/SAP1EMU/issues/new/choose" target="_blank">Github Support</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
 
 <script src="js/status.js"></script>
