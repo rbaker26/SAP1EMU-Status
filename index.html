@@ -1,11 +1,113 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Title of the document</title>
+  <script src="js/jquery-3.5.1.min.js"></script>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <script src="js/bootstrap.min.js"></script>
+  <title>SAP1EMU - Status</title>
 </head>
 
-<body>
-  The content of the document......
+<body class="text-center">
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="text-center display-2">SAP1Emu Status</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row clearfix">
+      <div class="col-md-12 column">
+
+        <div class="alert-success" id="status-good">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h4>Systems are operating normally.</h4>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="alert-warning" id="status-medium">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h4>Systems are operating, but with reduced capacity.</h4>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="alert-danger" id="status-bad">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h4>Systems are in <b>critical</b> condition and is no longer functioning normally.</h4>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <div class="row clearfix">
+          <div class="col-md-12 column">
+            <div class="list-group">
+
+
+              <div class="list-group-item">
+                
+                <h4 class="list-group-item-heading op" >
+                  sap1emu.net - <span class="pull-right" id="sap1emuPage"></span>
+                  <div class="spinner-border text-secondary" role="status" id="sap1emuPage-spinner">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <img class="pb-1" id="sap1emu-img" src="" width="25px">
+                </h4>
+              </div>
+
+              <!-- <div class="list-group-item">
+                <h4 class="list-group-item-heading op">
+                  status.sap1emu.net - <span class="pull-right" id="statusPage"></span>
+                  <div class="spinner-border text-secondary" role="status" id="statusPage-spinner">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </h4>
+              </div> -->
+              
+
+              <!-- <div class="list-group-item">
+                <h4 class="list-group-item-heading op">
+                  Azure US-West-2 <span class="pull-right">... timed out (1200ms)</span>
+                </h4>
+              </div> -->
+
+              <!-- <div class="list-group-item">
+                <h4 class="list-group-item-heading op">
+                  Azure Application Gateway <span class="pull-right">... timed out (1200ms)</span>
+                </h4>
+              </div> -->
+
+              <!-- <div class="list-group-item">
+                <h4 class="list-group-item-heading op">
+                  Azure App Service <span class="pull-right">... timed out (1200ms)</span>
+                </h4>
+              </div> -->
+
+              <div class="list-group-item">
+                <h4 class="list-group-item-heading op">
+                  GitHub DevOps Pipeline - <span class="pull-right" id="github"></span>
+                  <div class="spinner-border text-secondary" role="status" id="github-spinner">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <img class="pb-1" id="github-img" src="" width="25px">
+                </h4>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </body>
+
+<script src="js/status.js"></script>
 
 </html>
